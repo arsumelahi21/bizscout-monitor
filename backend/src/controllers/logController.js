@@ -1,10 +1,12 @@
 import pool from '../models/db.js';
 import { success, error } from '../utils/apiResponse.js';
+import { logger } from '../utils/logger.js';
+
 
 export async function getLogs(req, res) {
   try {
-    const page = Math.max(parseInt(req.query.page) || 1, 1);
-    const limit = Math.min(parseInt(req.query.limit) || 10, 100);
+    let page = Math.max(parseInt(req.query.page) || 1, 1);
+    let limit = Math.min(parseInt(req.query.limit) || 10, 100);
     
     if (isNaN(page) || page < 1)  page = 1;
     if (isNaN(limit) || limit < 1)  limit = 10;
@@ -34,7 +36,7 @@ export async function getLogs(req, res) {
     });
 
   } catch (err) {
-    console.error(err);
+    logger.error(err);
     return error(res, 'Failed to fetch logs');
   }
 }

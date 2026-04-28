@@ -3,6 +3,7 @@ logs/
 *.log
 backend/.env
 backend/.env.*
+backend/coverage
 
 
 frontend/node_modules/

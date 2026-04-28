@@ -38,7 +38,7 @@ export async function pingAndStore(io) {
     const is_anomaly = hasStats && Math.abs(zScore) > 1;
 
       
-    console.log({
+    logger.info({
       responseTime,
       avg,
       stddev,

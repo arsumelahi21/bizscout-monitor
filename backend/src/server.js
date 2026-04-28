@@ -2,6 +2,7 @@ import http from "http";
 import { Server } from "socket.io";
 import app from "./app.js";
 import { startCron } from './jobs/cron.js';
+import { logger } from './utils/logger.js';
 
 const server = http.createServer(app);
 
@@ -13,5 +14,5 @@ startCron(io);
 const PORT = process.env.PORT || 5050;
 
 server.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
+  logger.info(`Server running on http://localhost:${PORT}`);
 });
