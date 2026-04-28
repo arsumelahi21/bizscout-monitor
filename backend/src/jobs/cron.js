@@ -3,7 +3,7 @@ import { pingAndStore } from '../services/monitorService.js';
 import { logger } from '../utils/logger.js';
 
 export function startCron(io) {
-  cron.schedule('*/5 * * * *', async() => {
+  cron.schedule('*/10 * * * * *', async() => {
     const startTime = Date.now();
 
     logger.info({

@@ -75,6 +75,26 @@ function App() {
         </div>
       )}
 
+      <div className="mb-4 p-4 bg-white shadow rounded">
+          <h2 className="text-lg font-semibold mb-2">Insights</h2>
+
+          <p>Total Logs: {total}</p>
+
+          <p>
+            Anomalies: {logs.filter(l => l.is_anomaly).length}
+          </p>
+
+          <p>
+            Avg Response Time: {
+              logs.length > 0
+                ? Math.round(
+                    logs.reduce((a, b) => a + b.response_time, 0) / logs.length
+                  )
+                : 0
+            } ms
+          </p>
+        </div>
+
       {/* Table */}
       <div className="bg-white shadow rounded-lg overflow-hidden">
         {loading ? (

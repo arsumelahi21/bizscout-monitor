@@ -7,6 +7,8 @@ function LogTable({ logs }) {
           <th className="p-3 text-left">Status</th>
           <th className="p-3 text-left">Response Time</th>
           <th className="p-3 text-left">Time</th>
+          
+          
         </tr>
       </thead>
 
@@ -17,12 +19,16 @@ function LogTable({ logs }) {
             <td className="p-3">{log.id}</td>
 
             <td className={`p-3 font-semibold ${
-              log.status === 200
-                ? "text-green-600"
-                : "text-red-500"
-            }`}>
-              {log.status}
-            </td>
+                log.is_anomaly ? "text-red-600" : "text-green-600"
+              }`}>
+                {log.status}
+
+                {log.is_anomaly && (
+                  <span className="ml-2 text-xs bg-red-100 text-red-600 px-2 py-1 rounded">
+                    Anomaly
+                  </span>
+                )}
+              </td>
 
             <td className="p-3">
               <span className="bg-blue-100 px-2 py-1 rounded">
