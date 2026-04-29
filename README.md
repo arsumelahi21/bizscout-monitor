@@ -8,6 +8,32 @@ The system simulates API requests, stores logs, analyzes response times, and hig
 
 ---
 
+## Technology Choices & Reasoning
+
+### Backend
+
+* **Node.js + Express**
+
+  * Chosen for its simplicity, flexibility, and strong ecosystem for building APIs quickly.
+  * Well-suited for real-time applications and asynchronous operations (cron jobs, API calls).
+
+* **PostgreSQL (Supabase)**
+
+  * Provides a reliable relational structure for storing logs and querying historical data efficiently.
+  * Supabase offers managed hosting, reducing setup complexity.
+
+* **Socket.IO**
+
+  * Enables real-time communication between backend and frontend.
+  * Chosen over polling to provide instant updates with better performance.
+
+* **node-cron**
+
+  * Lightweight and easy-to-use scheduler for periodic tasks (API pinging).
+  * Suitable for simulating production-like monitoring behavior.
+
+---
+
 ## Architecture
 
 ### Backend (Node.js + Express)
@@ -187,6 +213,18 @@ npm start
 ```
 ---
 
+### Database Schema
+
+logs table:
+- id
+- request
+- response
+- status
+- response_time
+- is_anomaly
+- created_at
+
+---
 ## Scheduler
 
 * Uses `node-cron`
