@@ -12,7 +12,7 @@ The system simulates API requests, stores logs, analyzes response times, and hig
 
 ### Backend
 
-* **Node.js + Express**
+* **Node.js + Express**  - **Node Version 22+**
 
   * Chosen for its simplicity, flexibility, and strong ecosystem for building APIs quickly.
   * Well-suited for real-time applications and asynchronous operations (cron jobs, API calls).
